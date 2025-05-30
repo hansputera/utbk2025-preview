@@ -101,7 +101,7 @@ const UniversityDetail = () => {
             </div>
             
             <div className="flex-1">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-700 to-gray-900 bg-clip-text text-transparent mb-3">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-700 to-gray-900 bg-clip-text text-transparent mb-3">
                 {university.name}
               </h1>
               {university.location && (

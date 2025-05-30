@@ -56,12 +56,12 @@ const UniversityCard = ({ university, onClick }: UniversityCardProps) => {
           
           {/* University Info */}
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-sm sm:text-base md:text-[17px] text-slate-900 group-hover:text-slate-700 transition-colors duration-200 mb-0.5 sm:mb-1 line-clamp-2 leading-tight">
+            <h3 className="font-semibold text-xs sm:text-sm md:text-base text-slate-900 group-hover:text-slate-700 transition-colors duration-200 mb-0.5 sm:mb-1 line-clamp-2 leading-snug">
               {university.name}
             </h3>
             <div className="flex items-start gap-1.5 text-slate-500 mb-2 sm:mb-3">
-              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0 mt-0.5 text-slate-400" />
-              <p className="text-[11px] sm:text-xs text-slate-500 line-clamp-2 leading-tight">
+              <MapPin className="h-2.5 w-2.5 sm:h-3 sm:w-3 flex-shrink-0 mt-0.5 text-slate-400" />
+              <p className="text-[10px] sm:text-[11px] text-slate-500 line-clamp-2 leading-tight">
                 {university.address}
               </p>
             </div>
@@ -85,8 +85,8 @@ const UniversityCard = ({ university, onClick }: UniversityCardProps) => {
                   <Users className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-wide font-medium">KIP</div>
-                  <div className="font-bold text-slate-600 text-xs sm:text-sm truncate">
+                  <div className="text-[8px] sm:text-[9px] text-slate-500 uppercase tracking-wide font-medium">KIP</div>
+                  <div className="font-bold text-slate-600 text-[11px] sm:text-xs truncate">
                     {formatNumber(university.kipUsers)}
                   </div>
                 </div>

@@ -66,22 +66,22 @@ const ProgramDetail = () => {
       {/* Header */}
       <div className="bg-white/90 backdrop-blur-sm shadow-sm border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 sm:mb-6 text-xs sm:text-sm text-slate-600">
+          <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1 mb-3 sm:mb-4 text-[10px] sm:text-xs text-slate-600">
             <button 
               onClick={() => navigate('/')}
               className="hover:text-slate-900 transition-colors duration-200 text-left"
             >
               Dashboard
             </button>
-            <span className="hidden sm:inline">→</span>
+            <span className="hidden sm:inline text-[9px]">→</span>
             <button 
               onClick={() => navigate(`/university/${ptnCode}`)}
-              className="hover:text-slate-900 transition-colors duration-200 text-left line-clamp-1"
+              className="hover:text-slate-900 transition-colors duration-200 text-left line-clamp-1 text-[10px] sm:text-xs"
             >
               {university.name}
             </button>
-            <span className="hidden sm:inline">→</span>
-            <span className="text-slate-900 font-medium line-clamp-1">{program.name}</span>
+            <span className="hidden sm:inline text-[9px]">→</span>
+            <span className="text-slate-900 font-medium line-clamp-1 text-[10px] sm:text-xs">{program.name}</span>
           </div>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:gap-8 animate-fade-in">
@@ -105,7 +105,7 @@ const ProgramDetail = () => {
                 <div className="p-2 rounded-xl bg-slate-100">
                   <GraduationCap className="h-6 w-6 text-slate-700" />
                 </div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
                   {program.name}
                 </h1>
                 {program.isTopFive ? (
@@ -127,17 +127,23 @@ const ProgramDetail = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Card className="bg-white/90 backdrop-blur-sm border-slate-200 shadow-sm animate-fade-in">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-slate-900">Daftar Peserta Yang Lolos</CardTitle>
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8">
+        <Card className="bg-white/90 backdrop-blur-sm border-slate-200 shadow-sm animate-fade-in overflow-hidden">
+          <CardHeader className="pb-3 sm:pb-4">
+            <CardTitle className="text-lg sm:text-xl font-bold text-slate-900">
+              Daftar Peserta Yang Lolos
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <PassersTable 
-              ptnCode={ptnCode!} 
-              programCode={programCode!} 
-              programName={program.name} 
-            />
+          <CardContent className="p-0">
+            <div className="overflow-x-auto">
+              <div className="min-w-[600px] sm:min-w-0">
+                <PassersTable 
+                  ptnCode={ptnCode!} 
+                  programCode={programCode!} 
+                  programName={program.name} 
+                />
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
