@@ -23,5 +23,10 @@ UTBK Tracker adalah aplikasi yang dirancang untuk membantu siswa SMA/MA/SMK untu
 - Sonner
 - Vaul
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/d46d6761-caca-4b4a-aa1d-639259e4c0bb)
+![image](https://github.com/user-attachments/assets/6d01d315-c62b-449d-ac12-40c90ec67309)
+![image](https://github.com/user-attachments/assets/db977d82-f770-467b-92ad-bc60bad5af5c)
+
 ## License
 MIT License
