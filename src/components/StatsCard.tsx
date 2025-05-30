@@ -7,15 +7,16 @@ interface StatsCardProps {
   icon: string;
   trend?: string;
   color?: string;
+  className?: string;
 }
 
-const StatsCard = ({ title, value, icon, trend, color = "bg-blue-500" }: StatsCardProps) => {
+const StatsCard = ({ title, value, icon, trend, color = "bg-blue-500", className = "" }: StatsCardProps) => {
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat('id-ID').format(num);
   };
 
   return (
-    <Card className="relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg">
+    <Card className={`relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg h-full ${className}`}>
       <div className={`absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 ${color}`}></div>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
         <CardTitle className="text-sm font-medium text-gray-600 group-hover:text-gray-700 transition-colors">

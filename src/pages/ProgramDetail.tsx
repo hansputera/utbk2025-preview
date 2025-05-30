@@ -65,33 +65,34 @@ const ProgramDetail = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Header */}
       <div className="bg-white/90 backdrop-blur-sm shadow-sm border-b border-slate-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center gap-2 mb-6 text-sm text-slate-600">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 sm:mb-6 text-xs sm:text-sm text-slate-600">
             <button 
               onClick={() => navigate('/')}
-              className="hover:text-slate-900 transition-colors duration-200"
+              className="hover:text-slate-900 transition-colors duration-200 text-left"
             >
               Dashboard
             </button>
-            <span>→</span>
+            <span className="hidden sm:inline">→</span>
             <button 
               onClick={() => navigate(`/university/${ptnCode}`)}
-              className="hover:text-slate-900 transition-colors duration-200"
+              className="hover:text-slate-900 transition-colors duration-200 text-left line-clamp-1"
             >
               {university.name}
             </button>
-            <span>→</span>
-            <span className="text-slate-900 font-medium">{program.name}</span>
+            <span className="hidden sm:inline">→</span>
+            <span className="text-slate-900 font-medium line-clamp-1">{program.name}</span>
           </div>
           
-          <div className="flex items-center gap-8 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:gap-8 animate-fade-in">
             <div className="relative">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0 shadow-lg">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0 shadow-lg">
                 {university.logo ? (
                   <img 
                     src={university.logo} 
                     alt={university.name}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-2xl">🏫</div>

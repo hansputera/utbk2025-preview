@@ -16,63 +16,79 @@ const UniversityCard = ({ university, onClick }: UniversityCardProps) => {
 
   return (
     <Card 
-      className="cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 group bg-white/90 backdrop-blur-sm border-0 shadow-md overflow-hidden"
+      className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm overflow-hidden h-full flex flex-col"
       onClick={onClick}
     >
-      <CardContent className="p-6">
-        <div className="flex items-center gap-6">
-          <div className="relative">
-            <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-gray-100 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+      <CardContent className="p-3 sm:p-4 md:p-5 flex-1 flex flex-col">
+        <div className="flex items-start gap-3 sm:gap-4">
+          {/* University Logo */}
+          <div className="relative flex-shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 shadow-sm group-hover:shadow-md transition-all duration-300 flex items-center justify-center">
               {university.logo ? (
                 <img 
                   src={university.logo} 
                   alt={university.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  onError={(e) => {
+                    // Fallback to icon if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.parentElement?.querySelector('.university-fallback');
+                    if (fallback) fallback.classList.remove('hidden');
+                  }}
                 />
-              ) : (
-                <Building2 className="h-8 w-8 text-slate-400 group-hover:text-slate-600 transition-colors duration-300" />
-              )}
+              ) : null}
+              <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-slate-300 group-hover:text-slate-400 transition-colors duration-300 hidden university-fallback" />
             </div>
+            
             {university.isTopFive ? (
-              <div className="absolute -top-2 -right-2 animate-pulse">
-                <Badge variant="secondary" className="bg-gradient-to-r from-amber-400 to-orange-400 text-white border-0 shadow-lg text-xs px-2 py-1">
+              <div className="absolute -top-1 -right-1 sm:top-0 sm:right-0">
+                <Badge 
+                  variant="secondary" 
+                  className="bg-gradient-to-r from-amber-400 to-orange-400 text-white border-0 shadow-sm text-[9px] sm:text-[10px] px-1.5 py-0.5"
+                >
                   🏅 Top 5
                 </Badge>
               </div>
             ) : <></>}
           </div>
           
+          {/* University Info */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <h3 className="font-bold text-xl text-slate-900 group-hover:text-slate-700 transition-colors duration-300 mb-2">
-                  {university.name}
-                </h3>
-                <div className="flex items-center gap-2 text-slate-500 mb-4">
-                  <MapPin className="h-4 w-4" />
-                  <p className="text-sm">{university.address}</p>
-                </div>
-              </div>
+            <h3 className="font-semibold text-sm sm:text-base md:text-[17px] text-slate-900 group-hover:text-slate-700 transition-colors duration-200 mb-0.5 sm:mb-1 line-clamp-2 leading-tight">
+              {university.name}
+            </h3>
+            <div className="flex items-start gap-1.5 text-slate-500 mb-2 sm:mb-3">
+              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0 mt-0.5 text-slate-400" />
+              <p className="text-[11px] sm:text-xs text-slate-500 line-clamp-2 leading-tight">
+                {university.address}
+              </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-6">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 group-hover:bg-emerald-100 transition-colors duration-300">
-                <div className="p-2 rounded-lg bg-emerald-600 text-white">
-                  <GraduationCap className="h-4 w-4" />
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-lg bg-emerald-50 group-hover:bg-emerald-50/80 transition-colors duration-200">
+                <div className="p-1 sm:p-1.5 rounded-md bg-emerald-500 text-white flex-shrink-0">
+                  <GraduationCap className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 </div>
-                <div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wide">Peserta Lolos</div>
-                  <div className="font-bold text-emerald-600 text-lg">{formatNumber(university.passers)}</div>
+                <div className="min-w-0">
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-wide font-medium">Lolos</div>
+                  <div className="font-bold text-emerald-600 text-xs sm:text-sm truncate">
+                    {formatNumber(university.passers)}
+                  </div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 group-hover:bg-slate-100 transition-colors duration-300">
-                <div className="p-2 rounded-lg bg-slate-600 text-white">
-                  <Users className="h-4 w-4" />
+              <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-lg bg-slate-50 group-hover:bg-slate-50/80 transition-colors duration-200">
+                <div className="p-1 sm:p-1.5 rounded-md bg-slate-500 text-white flex-shrink-0">
+                  <Users className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 </div>
-                <div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wide">Pemilik KIP</div>
-                  <div className="font-bold text-slate-600 text-lg">{formatNumber(university.kipUsers)}</div>
+                <div className="min-w-0">
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-wide font-medium">KIP</div>
+                  <div className="font-bold text-slate-600 text-xs sm:text-sm truncate">
+                    {formatNumber(university.kipUsers)}
+                  </div>
                 </div>
               </div>
             </div>
@@ -80,7 +96,8 @@ const UniversityCard = ({ university, onClick }: UniversityCardProps) => {
         </div>
       </CardContent>
       
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-500/5 to-gray-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      {/* Hover effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-slate-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
     </Card>
   );
 };
