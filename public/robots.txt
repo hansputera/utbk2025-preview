@@ -1,0 +1,16 @@
+# Allow all web crawlers to access all pages
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://utbk2025.hanifu.id/sitemap.xml
+
+# Disallow crawling of admin and API routes
+Disallow: /admin/
+Disallow: /api/
+
+# Crawl-delay for all bots (5 requests per second)
+Crawl-delay: 5
+
+User-agent: *
+Allow: /
