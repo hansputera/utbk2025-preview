@@ -109,7 +109,7 @@ const ProgramDetail = () => {
                 </h1>
                 {program.isTopFive ? (
                   <Badge variant="secondary" className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-0 shadow-md">
-                    ⭐ Top 5
+                    ⭐ Top 5 (Prodi)
                   </Badge>
                 ) : <></>}
               </div>

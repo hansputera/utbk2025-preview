@@ -180,7 +180,7 @@ const Dashboard = () => {
                   university={{
                     ...university,
                     id: university.code,
-                    address: university.location.concat(', ', university.country),
+                    address: university.location?.concat(', ', university.country ?? '-') ?? '-',
                     kipUsers: university.kip || 0, // Fix NaN by using kip from API and defaulting to 0
                     isTopFive: university.isTopFive,
                   }}

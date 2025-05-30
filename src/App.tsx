@@ -25,10 +25,10 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <SEO {...defaultSEO} />
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SEO {...defaultSEO} />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/university/:id" element={<UniversityDetail />} />
