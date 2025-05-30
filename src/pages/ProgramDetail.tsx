@@ -117,9 +117,9 @@ const ProgramDetail = () => {
               <p className="text-lg text-slate-600">di {university.name}</p>
             </div>
 
-            <div className="text-right bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-2xl shadow-sm border border-emerald-100">
-              <div className="text-sm text-slate-500 uppercase tracking-wide mb-1">Total Peserta Yang Lolos</div>
-              <div className="text-3xl font-bold text-emerald-600">
+            <div className="text-center sm:text-right bg-gradient-to-br from-emerald-50 to-teal-50 p-4 sm:p-5 rounded-xl shadow-sm border border-emerald-100 w-full sm:w-auto">
+              <div className="text-xs sm:text-sm text-slate-500 uppercase tracking-wide mb-1">Total Lolos</div>
+              <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
                 {formatNumber(program.passers)}
               </div>
             </div>
