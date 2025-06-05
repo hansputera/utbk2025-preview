@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -9,7 +9,7 @@ import StatsCard from "../components/StatsCard";
 import UniversityCard from "../components/UniversityCard";
 import Pagination from "../components/Pagination";
 import { apiService } from "../services/api";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Home, Users } from "lucide-react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
       {/* Header */}
       <div className="bg-white/90 backdrop-blur-sm shadow-lg border-b border-slate-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="animate-fade-in">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent">
@@ -80,6 +80,30 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+          
+          {/* Navigation */}
+          <nav className="mt-4 sm:mt-6 pb-4 border-b border-slate-200">
+            <ul className="flex space-x-2">
+              <li>
+                <Link
+                  to="/"
+                  className="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-100 transition-colors"
+                >
+                  <Home className="h-4 w-4 mr-2" />
+                  Beranda
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/students"
+                  className="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-100 transition-colors"
+                >
+                  <Users className="h-4 w-4 mr-2" />
+                  Data Siswa
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
 

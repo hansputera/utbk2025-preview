@@ -8,6 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Dashboard from "./pages/Dashboard";
 import UniversityDetail from "./pages/UniversityDetail";
 import ProgramDetail from "./pages/ProgramDetail";
+import StudentSearch from "./pages/StudentSearch";
 import NotFound from "./pages/NotFound";
 import Footer from "@/components/Footer";
 import { SEO } from "./components/SEO";
@@ -31,6 +32,7 @@ const App = () => (
           <SEO {...defaultSEO} />
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/students" element={<StudentSearch />} />
             <Route path="/university/:id" element={<UniversityDetail />} />
             <Route path="/university/:id/program/:programId" element={<ProgramDetail />} />
             <Route path="*" element={<NotFound />} />
